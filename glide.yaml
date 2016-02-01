@@ -1,0 +1,4 @@
+package: github.com/cloudfoundry-incubator/bosh-certification-receipt-generator
+import:
+- package: github.com/onsi/ginkgo
+- package: github.com/onsi/gomega
