@@ -13,8 +13,8 @@ RUN cd /tmp && \
     tar -C /usr/local -xzf go*.tar.gz && \
     rm go*.tar.gz
 RUN cd /tmp && \
-    curl -O -L https://storage.googleapis.com/calebamiles-sharing/workspace-generator && \
-    chmod +x workspace-generator && \
-    mv workspace-generator /bin/workspace-generator
+    curl -O -L https://github.com/pivotal-golang/golang-workspace-generator/releases/download/v0.0.1/workspace-generator-linux-amd64 && \
+    mv workspace-generator-linux-amd64 /bin/workspace-generator && \
+    chmod +x /bin/workspace-generator
 
 ENV PATH /usr/local/go/bin:$PATH

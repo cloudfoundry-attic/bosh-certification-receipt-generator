@@ -4,7 +4,7 @@ set -e
 
 : ${project_namespace:?must be set}
 
-export $(workspace-generator)
+eval $(workspace-generator)
 fullpath=$GOPATH/src/$project_namespace
 mkdir -p $fullpath
 cp -r src/* $fullpath
