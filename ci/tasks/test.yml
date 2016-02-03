@@ -1,0 +1,7 @@
+---
+platform: linux
+image: docker:///boshcpi/bosh-certification-receipt-generator
+inputs:
+  - name: source
+run:
+  path: source/ci/tasks/test.sh
