@@ -14,7 +14,7 @@ pushd $fullpath > /dev/null
 
   for i in $(go list ./... | grep -v vendor); do
     go vet $i
-    golint $i | grep -v "should have comment or be unexported"
+    golint $i | sed "/should have comment or be unexported/d"
   done
 
   echo -e "\n Testing packages..."
