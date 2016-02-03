@@ -6,7 +6,8 @@ set -e
 
 export $(workspace-generator)
 fullpath=$GOPATH/src/$project_namespace
-cp -r src $GOPATH/src/
+mkdir -p $fullpath
+cp -r src/* $fullpath
 
 pushd $fullpath > /dev/null
   echo -e "\n Vetting packages for potential issues..."
