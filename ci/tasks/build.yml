@@ -1,6 +1,6 @@
 ---
 platform: linux
-image: docker:///boshcpi/bosh-certification-receipt-generator
+image: docker:///boshcpi/ci-bosh-certification-receipt-generator
 inputs:
   - name: src
   - name: version
