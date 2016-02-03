@@ -20,10 +20,10 @@ pushd $fullpath > /dev/null
   version="${semver}-${git_rev}-${timestamp}"
 
   echo -e "\n building artifact..."
-  go build -ldflags "-X main.version=${version}" -o "out/certify-artifacts"
+  go build -ldflags "-X main.version=${version}" -o "out/certify-artifacts-linux-amd64"
 
   echo -e "\n sha1 of artifact..."
-  sha1sum out/certify-artifacts
+  sha1sum out/certify-artifacts-linux-amd64
 
-  mv out/certify-artifacts ${output_dir}/
+  mv out/* ${output_dir}/
 popd > /dev/null
