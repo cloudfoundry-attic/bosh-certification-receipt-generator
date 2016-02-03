@@ -6,8 +6,7 @@ set -e
 
 export $(workspace-generator)
 fullpath=$GOPATH/src/$project_namespace
-mkdir -p $(dirname $fullpath)
-mv src $fullpath
+cp -r src $GOPATH/src/
 
 semver=`cat version/number`
 timestamp=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
