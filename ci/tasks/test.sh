@@ -7,7 +7,7 @@ set -e
 eval $(workspace-generator)
 fullpath=$GOPATH/src/$project_namespace
 mkdir -p $fullpath
-cp -r src/* $fullpath
+cp -r src/ $fullpath
 
 pushd $fullpath > /dev/null
   echo -e "\n Vetting & Linting packages for potential issues..."
