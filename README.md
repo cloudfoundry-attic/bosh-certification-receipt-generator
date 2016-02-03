@@ -4,8 +4,9 @@ Generates receipts for certified BOSH release + stemcell combinations.
 
 ## Installing pre-built Linux binaries
 
-```
-curl ...
+``` bash
+URL=https://s3.amazonaws.com/bosh-certification-generator-releases/certify-artifacts-linux-amd64
+curl -f -L -o certify-artifacts $URL
 chmod +x certify-artifacts
 ```
 
@@ -21,19 +22,20 @@ chmod +x certify-artifacts
 
 - To generate a certification receipt,
 
-  run the following:
+  given the following flags:
+
+  - `--release <value>` (multiple flags allowed)<br>
+    where value is `name/version`
+  - `--stemcell <value>` (single flag allowed)<br>
+    where value is `name/version`
+
+  run (something like) the following:
 
   ``` bash
   ./certify-artifacts         \
     --release bosh/250        \
     --release bosh-aws-cpi/42 \
     --stemcell bosh-aws-xen-hvm-ubuntu-trusty-go_agent/3184.1
-
-  # ... where flags are:
-  #   --release value (multiple flags allowed)
-  #     where value is name/version
-  #   --stemcell value (single flag allowed)
-  #     where value is name/version
   ```
 
   resulting in:
@@ -82,4 +84,8 @@ chmod +x certify-artifacts
     --pipeline build-certifier \
     --config ci/pipeline.yml   \
     --load-vars-from path/to/config.yml
+
+  open http://192.168.100.4:8080/pipelines/build-certifier
   ```
+
+  ...and start the build.
