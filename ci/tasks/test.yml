@@ -5,3 +5,5 @@ inputs:
   - name: src
 run:
   path: src/ci/tasks/test.sh
+params:
+  project_namespace: github.com/cloudfoundry-incubator/bosh-certification-receipt-generator

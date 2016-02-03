@@ -2,10 +2,9 @@
 
 set -e
 
-# $project_namespace="github.com/cloudfoundry-incubator/bosh-certification-receipt-generator"
 : ${project_namespace:?must be set}
 
-export $(cat <(workspace-generator))
+export $(workspace-generator)
 fullpath=$GOPATH/src/$project_namespace
 mkdir -p $(dirname $fullpath)
 mv src $fullpath
