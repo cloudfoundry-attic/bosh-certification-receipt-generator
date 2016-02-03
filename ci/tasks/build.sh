@@ -18,7 +18,7 @@ pushd $fullpath > /dev/null
   version="${semver}-${git_rev}-${timestamp}"
 
   echo -e "\n building artifact..."
-  go build -ldflags "-X main.version=${version}" -o "out/certify-artifacts" $project_namespace
+  go build -ldflags "-X main.version=${version}" -o "out/certify-artifacts"
 
   echo -e "\n sha1 of artifact..."
   sha1sum out/certify-artifacts

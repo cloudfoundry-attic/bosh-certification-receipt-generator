@@ -10,11 +10,12 @@ mkdir -p $fullpath
 cp -r src/* $fullpath
 
 pushd $fullpath > /dev/null
-  echo -e "\n Vetting packages for potential issues..."
-  go vet ${project_namespace}/...
+  echo -e "\n Vetting & Linting packages for potential issues..."
 
-  echo -e "\n Checking with golint..."
-  golint ${project_namespace}/...
+  for i in $(go list ./... | grep -v vendor); do
+    go vet $i
+    golint $i | grep -v "should have comment or be unexported"
+  done
 
   echo -e "\n Testing packages..."
   ginkgo -r -race .

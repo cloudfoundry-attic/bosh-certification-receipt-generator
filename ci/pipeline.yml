@@ -7,7 +7,6 @@ jobs:
         - get: src
           resource: src-in
           trigger: true
-          params: { submodules: none }
         - get: version
           params: { bump: patch }
 
